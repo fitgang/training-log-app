@@ -86,8 +86,76 @@ const ViewBox = (props) => {
   }
 }
 
-// User data
+class Exercise {
+  constructor(obj) {
+    this.name = obj.name;
+    this.sets = obj.sets;
+    this.reps = obj.reps;
+    this.rest = obj.rest;
+  }
 
+  update(this, prop, val) {
+    this[prop] = val;
+  }
+}
+
+class Routine {
+  constructor(obj) {
+    this.name = obj.name;
+    this.status = obj.status;
+    this.split = obj.split;
+    this.cycle = obj.cycle;
+    this.date = obj.date;
+
+    // Object literal
+    /* Format -
+      exercise-name: Exercise {}
+    */
+    this.exercises = obj.exercises; 
+    if (obj.remarks) this.remarks = obj.remarks;
+  }
+
+  // Remove a particular exercise
+  removeExercise(this, exerName) {
+
+  }
+
+  // Add a particular exercise
+  addExercise(this, exerName, stats) {
+
+  }
+
+  // Change stat of a particular exercise
+  updateExercise(this, exerName, stat) {
+
+  }
+
+  addRemarks(this, str) {
+    this.remarks = str;
+  }
+}
+
+// User data
+let userData = {
+  user: {
+    name: "Ayush Gupta",
+    age: 20,
+    height: 5.9,
+    weight: 75
+  },
+  split: "U/L",
+
+  // cycle contains 'template routines' as object instances of class Routine
+  cycle: ["U1", "L1", "U2", "L2", "U3"],
+  goals: {
+    "deadline-date1": ["goal1", "goal2"],
+    "deadline-date2": ["goal1", "goal2"]
+  },
+  log: {
+    "date1": "object instances of class Routine",
+    "date2": "object instances of class Routine"
+  }
+}
 
 // Collection of all sections
 // Format - 'section-name' : 'font-awesome icon classname for nav bar'
