@@ -1,4 +1,4 @@
-class Exercise {
+export class Exercise {
   constructor(obj) {
     this.name = obj.name;
     this.sets = obj.sets;
@@ -11,19 +11,20 @@ class Exercise {
   }
 }
 
-class Routine {
+export class Template {
   constructor(obj) {
     this.name = obj.name;
-    this.status = obj.status;
     this.split = obj.split;
     this.cycle = obj.cycle;
-    this.date = obj.date;
-
-    // Object literal
-    /* Format -
-      exercise-name: Exercise {}
-    */
     this.exercises = obj.exercises;
+  }
+}
+
+export class Routine extends Template {
+  constructor(obj) {
+    super(obj);
+    this.status = obj.status;
+    this.date = obj.date;
     if (obj.remarks) this.remarks = obj.remarks;
   }
 
