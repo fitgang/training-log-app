@@ -6,7 +6,7 @@ export class Exercise {
     this.rest = obj.rest;
   }
 
-  update(this, prop, val) {
+  update(prop, val) {
     this[prop] = val;
   }
 }
@@ -16,34 +16,34 @@ export class Template {
     this.name = obj.name;
     this.split = obj.split;
     this.cycle = obj.cycle;
-    this.exercises = obj.exercises;
+    this.exercises = obj.exercises.map(exer => new Exercise(exer));
   }
 }
 
 export class Routine extends Template {
-  constructor(obj) {
+  constructor(obj, date) {
     super(obj);
     this.status = obj.status;
-    this.date = obj.date;
+    this.date = date;
     if (obj.remarks) this.remarks = obj.remarks;
   }
 
   // Remove a particular exercise
-  removeExercise(this, exerName) {
+  removeExercise(exerName) {
 
   }
 
   // Add a particular exercise
-  addExercise(this, exerName, stats) {
+  addExercise(exerName, stats) {
 
   }
 
   // Change stat of a particular exercise
-  updateExercise(this, exerName, stat) {
+  updateExercise(exerName, stat) {
 
   }
 
-  addRemarks(this, str) {
+  addRemarks(str) {
     this.remarks = str;
   }
 }

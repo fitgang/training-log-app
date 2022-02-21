@@ -1,3 +1,4 @@
+import { Exercise, Routine } from './class.js';
 import NavBar from './NavBar.js';
 import ViewBox from './ViewBox.js'; // Collection of all sections
 // Format - 'section-name' : 'font-awesome icon classname for nav bar'
@@ -10,6 +11,25 @@ const sections = {
   nutrition: "a",
   settings: "a"
 };
+let userData;
+
+try {
+  // Get data from backend
+  userData = await getUserData();
+} catch (err) {
+  console.log(err);
+  alert("Error occured.\nPlease refresh the page.");
+} // Organize data as per classes used
+
+
+userData.cycle.forEach(tempelate => {
+  tempelate.exercises = tempelate.exercises.map(exer => new Exercise(exer));
+});
+const log = userData.log;
+
+for (let date in log) {
+  userData.log[date] = new Routine(log[date], date);
+}
 
 class App extends React.Component {
   // Stateful
@@ -26,7 +46,8 @@ class App extends React.Component {
       navItems: this.props.sections,
       inView: inView
     }), /*#__PURE__*/React.createElement(ViewBox, {
-      inView: inView
+      inView: inView,
+      userData: this.props.userData
     }));
   }
 
@@ -36,3 +57,9 @@ ReactDOM.render( /*#__PURE__*/React.createElement(App, {
   sections: sections,
   user: userData
 }), document.getElementById("app"));
+
+async function getUserData() {
+  const r = await fetch("/user"),
+        d = await r.json();
+  return d.userData;
+}

@@ -79,7 +79,7 @@ const r1 = {
     ]
   };
 
-let userData = {
+const userData = {
   user: {
     name: "Ayush Gupta",
     age: 20,
@@ -103,6 +103,10 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html")
+});
+
+app.get("/user", (req, res) => {
+  res.json({ userData: userData })
 });
 
 app.listen(port, () => console.log("Listening on http://localhost:" + port + "/"));
