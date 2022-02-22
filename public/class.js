@@ -1,3 +1,5 @@
+import { getCurrentDate } from "./helpers";
+
 export class Exercise {
   constructor(obj) {
     this.name = obj.name;
@@ -16,16 +18,12 @@ export class Template {
     this.name = obj.name;
     this.split = obj.split;
     this.cycle = obj.cycle;
+    this.day = obj.day;
     this.exercises = obj.exercises.map(exer => new Exercise(exer));
   }
-}
 
-export class Routine extends Template {
-  constructor(obj, date) {
-    super(obj);
-    this.status = obj.status;
-    this.date = date;
-    if (obj.remarks) this.remarks = obj.remarks;
+  createRoutine() {
+    return new Routine(this, getCurrentDate());
   }
 
   // Remove a particular exercise
@@ -43,7 +41,18 @@ export class Routine extends Template {
 
   }
 
-  addRemarks(str) {
+
+}
+
+export class Routine extends Template {
+  constructor(obj, date) {
+    super(obj);
+    this.status = obj.status;
+    this.date = date;
+    if (obj.remarks) this.remarks = obj.remarks;
+  }
+
+  updateRemarks(str) {
     this.remarks = str;
   }
 }

@@ -1,10 +1,7 @@
 import Log from "./Log.js";
 
 const ViewBox = props => {
-  const userData = props.userData,
-        log = userData.log,
-        goals = userData.goals,
-        cycle = userData.cycle;
+  const userData = props.userData;
 
   switch (props.inView) {
     case 'progress':
@@ -12,12 +9,12 @@ const ViewBox = props => {
 
     case 'goals':
       return /*#__PURE__*/React.createElement(Goals, {
-        goals: goals
+        goals: userData.goals
       });
 
     case 'cycle':
       return /*#__PURE__*/React.createElement(Cycle, {
-        cycle: cycle
+        cycle: userData.cycle
       });
 
     case 'nutrition':
@@ -28,7 +25,7 @@ const ViewBox = props => {
 
     default:
       return /*#__PURE__*/React.createElement(Log, {
-        log: log
+        log: userData.log
       });
   }
 };

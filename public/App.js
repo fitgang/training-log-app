@@ -1,4 +1,4 @@
-import { Exercise, Routine } from './class.js';
+import { Exercise, Template, Routine } from './class.js';
 import NavBar from './NavBar.js';
 import ViewBox from './ViewBox.js'; // Collection of all sections
 // Format - 'section-name' : 'font-awesome icon classname for nav bar'
@@ -22,9 +22,7 @@ try {
 } // Organize data as per classes used
 
 
-userData.cycle.forEach(tempelate => {
-  tempelate.exercises = tempelate.exercises.map(exer => new Exercise(exer));
-});
+userData.cycle = userData.cycle.map(temp => new Template(temp));
 const log = userData.log;
 
 for (let date in log) {
@@ -55,7 +53,7 @@ class App extends React.Component {
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, {
   sections: sections,
-  user: userData
+  userData: userData
 }), document.getElementById("app"));
 
 async function getUserData() {

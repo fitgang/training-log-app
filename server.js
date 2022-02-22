@@ -7,6 +7,7 @@ const u1 = {
     name: "U1",
     split: "U/L",
     cycle: 2,
+    day: 1,
     exercises: [{
         name: "pushup",
         sets: 3,
@@ -25,6 +26,7 @@ const u1 = {
     name: "U2",
     split: "U/L",
     cycle: 2,
+    day: 2,
     exercises: [{
         name: "pullup",
         sets: 3,

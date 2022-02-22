@@ -1,11 +1,23 @@
+import { getCurrentDate } from "./helpers";
+
 const LogNav = props => {
   return /*#__PURE__*/React.createElement("nav", null, "gygygyg");
 };
 
 class Log extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props); // Current date
+
+    const curDate = getCurrentDate();
+    this.state = {
+      log: props.log,
+      inView: curDate
+    }; // If log does not contain today's routine
+
+    if (!this.state.log.hasOwnProperty(curDate)) {
+      // Create today's routine and store it in log
+      this.state.log.curDate = createRoutine(curDate);
+    }
   }
 
   render() {
@@ -15,3 +27,7 @@ class Log extends React.Component {
 }
 
 export default Log;
+
+function createTodayRoutine(dateStr) {// Find the current day acc. to the split and cycle
+  // Create routine from template
+}
