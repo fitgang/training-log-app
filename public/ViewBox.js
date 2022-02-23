@@ -25,7 +25,8 @@ const ViewBox = props => {
 
     default:
       return /*#__PURE__*/React.createElement(Log, {
-        log: userData.log
+        log: userData.log,
+        cycle: userData.cycle
       });
   }
 };

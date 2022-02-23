@@ -89,7 +89,6 @@ const userData = {
     weight: 75
   },
   split: "U/L",
-  // cycle contains 'template routines' as object instances of class Routine
   cycle: [u1, u2],
   goals: {
     "1-3-2020": ["15 pushups", "50 squats"],

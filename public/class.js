@@ -1,4 +1,4 @@
-import { getCurrentDate } from "./helpers";
+import { getCurDateString } from "./helpers";
 
 export class Exercise {
   constructor(obj) {
@@ -23,7 +23,7 @@ export class Template {
   }
 
   createRoutine() {
-    return new Routine(this, getCurrentDate());
+    return new Routine(this, getCurDateString());
   }
 
   // Remove a particular exercise
@@ -47,12 +47,19 @@ export class Template {
 export class Routine extends Template {
   constructor(obj, date) {
     super(obj);
-    this.status = obj.status;
     this.date = date;
-    if (obj.remarks) this.remarks = obj.remarks;
+    this.name += `|D${this.day}`;
+    this.status = "ongoing";
   }
 
   updateRemarks(str) {
     this.remarks = str;
+  }
+
+  static create(obj) {
+    let routine = new Routine(obj, obj.date);
+    routine.name = obj.name;
+    routine.status = obj.status;
+    return routine
   }
 }

@@ -1,4 +1,4 @@
-import { Exercise, Template, Routine } from './class.js';
+import { Template, Routine } from './class.js';
 import NavBar from './NavBar.js';
 import ViewBox from './ViewBox.js'; // Collection of all sections
 // Format - 'section-name' : 'font-awesome icon classname for nav bar'
