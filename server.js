@@ -46,6 +46,7 @@ const r1 = {
     name: "U1|D1",
     status: "completed",
     split: "U/L",
+    day: 1,
     cycle: 2,
     exercises: [{
         name: "pushup",
@@ -65,6 +66,7 @@ const r1 = {
     name: "U2|D2",
     status: "upcoming",
     split: "U/L",
+    day: 2,
     cycle: 2,
     exercises: [{
         name: "pullup",
@@ -95,8 +97,8 @@ const userData = {
     "5-5-2020": ["60sec L-sit", "10 pullups"]
   },
   log: {
-    "20-02-2020": r1,
-    "21-02-2020": r2
+    "20-2-2022": r1,
+    "28-2-2022": r2
   }
 }
 

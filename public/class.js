@@ -1,4 +1,4 @@
-import { getCurDateString } from "./helpers";
+import { getCurDateString } from "./helpers.js";
 
 export class Exercise {
   constructor(obj) {
@@ -48,7 +48,6 @@ export class Routine extends Template {
   constructor(obj, date) {
     super(obj);
     this.date = date;
-    this.name += `|D${this.day}`;
     this.status = "ongoing";
   }
 
